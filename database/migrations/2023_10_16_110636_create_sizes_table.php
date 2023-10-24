@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('sizes', function (Blueprint $table) {
             $table->id();
+            $table->string('size'); // Size name, e.g., "Small," "Medium," "Large"
             $table->timestamps();
         });
     }

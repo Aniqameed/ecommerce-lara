@@ -11,7 +11,7 @@ class sizeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,29 @@ class sizeRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        switch($this->method()) {
+            case 'GET':
+            case 'DELETE':
+                {
+                    return [];
+                }
+            case 'POST':
+                {
+                    // return ['size' => 'required|string',
+                    // ];
+
+                    return [
+                        'size' => 'required|string|in:small,medium,large',
+                    ];
+                }
+            case 'PUT':
+                {
+                    return [
+                        //
+                    ];
+                }
+            default:break
+                ;
+        }
     }
 }

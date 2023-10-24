@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\size;
 use Illuminate\Http\Request;
+use App\Http\Requests\sizeRequest;
 
 class SizeController extends Controller
 {
@@ -18,17 +19,32 @@ class SizeController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(sizeRequest $request)
     {
-        //
+        return view('pages.size.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(sizeRequest $request)
     {
-        //
+        $selectedSize = $request->input('size');
+
+        // Handle the selected size and other form data here
+
+       // Redirect or return a response
+        try {
+            $size = new size();
+            // $size->size = $request->size;
+            $request->validate([
+                'size' => 'required|string|in:small,medium,large',
+            ]);
+
+            return redirect()->route('size.index');
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -52,7 +68,9 @@ class SizeController extends Controller
      */
     public function update(Request $request, size $size)
     {
-        //
+        $request->validate([
+            'size' => 'required|string|in:small,medium,large',
+        ]);
     }
 
     /**

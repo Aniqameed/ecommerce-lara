@@ -11,7 +11,7 @@ class colorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,30 @@ class colorRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        switch($this->method()) {
+            case 'GET':
+            case 'DELETE':
+                {
+                    return [];
+                }
+            case 'POST':
+                {
+                    return [
+                        'name' => 'required|string|max:255',
+                        'hex_code' => 'required|string|regex:/^#([A-Fa-f0-9]{6})$/i|unique:colors,hex_code',
+                        // 'rgb_code' => 'required|string|max:20',
+                        // 'cmyk' => 'nullable|string|max:20',
+                    ];
+                }
+            case 'PUT':
+                {
+                    return [
+                         //
+                    ];
+                }
+            default:break
+                ;
+        }
     }
 }
+

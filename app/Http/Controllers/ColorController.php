@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\color;
 use Illuminate\Http\Request;
+use App\Http\Requests\colorRequest;
 
 class ColorController extends Controller
 {
@@ -20,15 +21,25 @@ class ColorController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.color.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(colorRequest $request)
     {
-        //
+        try {
+            $color = new Color();
+            $color->name = $request->name;
+            $color->hex_code = $request->hex_code;
+            // $color->rgb_code = $request->rgb_code;
+            $color->save();
+
+            return redirect()->route('color.index')->with('success', 'Color added successfully');
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**

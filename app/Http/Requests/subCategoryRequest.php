@@ -21,8 +21,28 @@ class subCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        switch($this->method()) {
+            case 'GET':
+            case 'DELETE':
+                {
+                    return [];
+                }
+            case 'POST':
+                {
+                    return [
+                        'name' => 'required|string|max:255',
+                        'description' => 'nullable|string',
+                        // 'category_id' => 'required|exists:categories,id',
+                    ];
+                }
+            case 'PUT':
+                {
+                    return [
+                    //
+                    ];
+                }
+            default:break
+                ;
+        }
     }
 }

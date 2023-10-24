@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 // Categories Routes
-Route::get('/sub-categories/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('sub-categories.create');
+Route::get('/categories/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('categories.create');
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories.index');
 Route::get('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
 Route::post('/categories', [App\Http\Controllers\CategoryController::class, 'store'])->name('categories.store');

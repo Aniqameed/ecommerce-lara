@@ -11,7 +11,7 @@ class productRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,33 @@ class productRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        switch($this->method()) {
+            case 'GET':
+            case 'DELETE':
+                {
+                    return [];
+                }
+            case 'POST':
+                {
+                    return [
+                        // 'product_id' => 'required|integer',
+                        'name' => 'required|string',
+                        'description' => 'required|string',
+                        'price' => 'required|numeric',
+                        // 'stock_quantity' => 'required|integer',
+                        // 'category_id' => 'required|integer',
+                        // 'slug' => 'required|string',
+                        // 'sku' => 'required|string',
+                    ];
+                }
+            case 'PUT':
+                {
+                    return [
+                     //
+                    ];
+                }
+            default:break
+                ;
+        }
     }
 }

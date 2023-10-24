@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->longText('description')->nullable();
-            $table->longText('parent-category')->required();
+            // $table->unsignedBigInteger('category_id'); // Foreign key to reference the parent category
             $table->timestamps();
         });
     }

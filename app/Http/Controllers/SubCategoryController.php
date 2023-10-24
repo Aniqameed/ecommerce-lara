@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use App\Http\Requests\subCategoryRequest;
 
 class SubCategoryController extends Controller
 {
@@ -20,15 +21,25 @@ class SubCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.sub-Category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(subCategoryRequest $request)
     {
-        //
+        try {
+            $subCategory = new subCategory();
+            $subCategory->name = $request->name;
+            $subCategory->description = $request->description;
+            // $subCategory->category_id = $request->category_id;
+            $subCategory->save();
+
+            return redirect()->route('sub-Category.index');
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
