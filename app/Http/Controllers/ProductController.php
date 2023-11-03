@@ -55,6 +55,8 @@ class ProductController extends Controller
             // $product->sku = $request->sku ;
             $product->save();
 
+            return redirect()->route('product.create', $product->id);
+
             return redirect()->route('product.index');
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -64,9 +66,21 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(product $product)
+    public function show($id)
     {
-        //
+        // product $product
+        {
+            $product = Product::find($id);
+
+            if (!$product) {
+                // Handle the case when the product doesn't exist, e.g., display an error message or redirect
+                return redirect()->route('product.index')->with('error', 'Product not found');
+            }
+
+            return view('product.show', compact('product'));
+        }
+
+
     }
 
     /**

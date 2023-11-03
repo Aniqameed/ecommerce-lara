@@ -29,23 +29,37 @@
             <span class="hide-menu">UI COMPONENTS</span>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
-            <span>
-                <i class="ti ti-article"></i>
-            </span>
-            <span class="hide-menu">Button</span>
-            </a>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Products
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./product/create">Add</a></li>
+                  <li><a class="dropdown-item" href="./product/{id}">Show</a></li>
+
+                </ul>
+              </div>
         </li>
-        <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+        {{-- <li class="sidebar-item">
+            <a class="sidebar-link" href="./product/create" aria-expanded="true">
             <span>
                 <i class="ti ti-cards"></i>
             </span>
-            <span class="hide-menu">Product</span>
+            <span class="hide-menu">Product</span> --}}
+            {{-- <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Products
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Add product</a>
+                  <a class="dropdown-item" href="#">View Product</a>
+                  <a class="dropdown-item" href="#">Edit Product</a>
+                </div>
+              </div> --}}
             </a>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+            <a class="sidebar-link" href="./color/create" aria-expanded="true">
             <span>
                 <i class="ti ti-cards"></i>
             </span>
@@ -53,7 +67,7 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+            <a class="sidebar-link" href="./categories/create" aria-expanded="true">
             <span>
                 <i class="ti ti-cards"></i>
             </span>
@@ -61,7 +75,7 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+            <a class="sidebar-link" href="./sub-category/create" aria-expanded="true">
             <span>
                 <i class="ti ti-cards"></i>
             </span>
@@ -69,7 +83,7 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+            <a class="sidebar-link" href="./size/create" aria-expanded="true">
             <span>
                 <i class="ti ti-cards"></i>
             </span>
@@ -78,7 +92,7 @@
         </li>
 
         <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+            <a class="sidebar-link" href="./order/create" aria-expanded="true">
             <span>
                 <i class="ti ti-cards"></i>
             </span>
@@ -125,7 +139,7 @@
             <span class="hide-menu">AUTH</span>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+            <a class="sidebar-link" href="./login/create" aria-expanded="true">
             <span>
                 <i class="ti ti-login"></i>
             </span>

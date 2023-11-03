@@ -27,7 +27,7 @@ Route::delete('/categories/{category}', [App\Http\Controllers\CategoryController
 // Color Routes
 Route::get('/color/create', [App\Http\Controllers\ColorController::class, 'create'])->name('color.create');
 Route::get('/color', [App\Http\Controllers\ColorController::class, 'index'])->name('color.index');
-Route::get('/color/{category}', [App\Http\Controllers\ColorController::class, 'show'])->name('color.show');
+Route::get('/color/{color}', [App\Http\Controllers\ColorController::class, 'show'])->name('color.show');
 Route::post('/color', [App\Http\Controllers\ColorController::class, 'store'])->name('color.store');
 Route::get('/color/{color}/edit', [App\Http\Controllers\ColorController::class, 'edit'])->name('color.edit');
 Route::put('/color/{color}/edit', [App\Http\Controllers\ColorController::class, 'update'])->name('color.update');
@@ -36,7 +36,7 @@ Route::delete('/color/{color}', [App\Http\Controllers\ColorController::class, 'd
 // order Routes
 Route::get('/order/create', [App\Http\Controllers\orderController::class, 'create'])->name('order.create');
 Route::get('/order', [App\Http\Controllers\orderController::class, 'index'])->name('order.index');
-Route::get('/order/{category}', [App\Http\Controllers\orderController::class, 'show'])->name('order.show');
+Route::get('/order/{order}', [App\Http\Controllers\orderController::class, 'show'])->name('order.show');
 Route::post('/order', [App\Http\Controllers\orderController::class, 'store'])->name('order.store');
 Route::get('/order/{order}/edit', [App\Http\Controllers\orderController::class, 'edit'])->name('order.edit');
 Route::put('/order/{order}/edit', [App\Http\Controllers\orderController::class, 'update'])->name('order.update');
@@ -45,11 +45,12 @@ Route::delete('/order/{order}', [App\Http\Controllers\orderController::class, 'd
 //product routes
 Route::get('/product/create', [App\Http\Controllers\productController::class, 'create'])->name('product.create');
 Route::get('/product', [App\Http\Controllers\productController::class, 'index'])->name('product.index');
-Route::get('/product/{category}', [App\Http\Controllers\productController::class, 'show'])->name('product.show');
+Route::get('/product/{id}', [App\Http\Controllers\productController::class, 'show'])->name('product.show');
 Route::post('/product', [App\Http\Controllers\productController::class, 'store'])->name('product.store');
 Route::get('/product/{product}/edit', [App\Http\Controllers\productController::class, 'edit'])->name('product.edit');
 Route::put('/product/{product}/edit', [App\Http\Controllers\productController::class, 'update'])->name('product.update');
 Route::delete('/product/{product}', [App\Http\Controllers\productController::class, 'destroy'])->name('product.destroy');
+
 
 // size Routes
 Route::get('/size/create', [App\Http\Controllers\sizeController::class, 'create'])->name('size.create');
@@ -65,6 +66,25 @@ Route::get('/sub-category/create', [App\Http\Controllers\subcategoryController::
 Route::get('/sub-category', [App\Http\Controllers\subcategoryController::class, 'index'])->name('sub-category.index');
 Route::get('/sub-category/{sub-category}', [App\Http\Controllers\subcategoryController::class, 'show'])->name('sub-category.show');
 Route::post('/sub-category', [App\Http\Controllers\subcategoryController::class, 'store'])->name('sub-category.store');
-Route::get('/sub-category/{sub-category}/edit', [App\Http\Controllers\subcategoryrController::class, 'edit'])->name('sub-category.edit');
+Route::get('/sub-category/{sub-category}/edit', [App\Http\Controllers\subcategoryryController::class, 'edit'])->name('sub-category.edit');
 Route::put('/sub-category/{sub-category}/edit', [App\Http\Controllers\subcategoryController::class, 'update'])->name('sub-category.update');
 Route::delete('/sub-category/{sub-category}', [App\Http\Controllers\subcategoryController::class, 'destroy'])->name('sub-category.destroy');
+
+// login Routes
+Route::get('/login/create', [App\Http\Controllers\loginController::class, 'create'])->name('login.create');
+Route::get('/login', [App\Http\Controllers\loginController::class, 'index'])->name('login.index');
+Route::get('/login/{login}', [App\Http\Controllers\loginController::class, 'show'])->name('login.show');
+Route::post('/login', [App\Http\Controllers\loginController::class, 'store'])->name('login.store');
+Route::get('/login/{login}/edit', [App\Http\Controllers\loginController::class, 'edit'])->name('login.edit');
+Route::put('/login/{login}/edit', [App\Http\Controllers\loginController::class, 'update'])->name('login.update');
+Route::delete('/login/{login}', [App\Http\Controllers\loginController::class, 'destroy'])->name('login.destroy');
+
+// // register Routes
+// Route::get('/register/create', [App\Http\Controllers\registerController::class, 'create'])->name('register.create');
+// Route::get('/register', [App\Http\Controllers\registerController::class, 'index'])->name('register.index');
+// Route::get('/register/{register}', [App\Http\Controllers\registerController::class, 'show'])->name('register.show');
+// Route::post('/register', [App\Http\Controllers\registerController::class, 'store'])->name('register.store');
+// Route::get('/register/{register}/edit', [App\Http\Controllers\registerController::class, 'edit'])->name('register.edit');
+// Route::put('/register/{register}/edit', [App\Http\Controllers\registerController::class, 'update'])->name('register.update');
+// Route::delete('/register/{register}', [App\Http\Controllers\registerController::class, 'destroy'])->name('register.destroy');
+
